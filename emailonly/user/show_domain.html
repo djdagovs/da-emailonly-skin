@@ -1,0 +1,94 @@
+|?TREE=&raquo; <a class=tree href="/CMD_SHOW_DOMAIN?domain=`domain`">`domain`</a>|
+|?HELP_SECTION=`USER_HELPER`|
+|HTM_USER_TOP|
+
+
+<img src="|LANG_IMG_SKIN_BODY_ACCOUNT|" width="500" height="68"><br>
+<table border="0" width="100%" cellspacing="0" cellpadding="3">
+	<tr>
+		<td width="50%" valign="top" class="left-pad">
+|*if ALLOWED_CMD_DOMAIN!="no"|
+			<a href="/CMD_ADDITIONAL_DOMAINS?domain=|domain|">|LANG_DOMAIN_SETUP|</a><br><br>
+|*endif|
+                        <a href="/HTM_PASSWD?domain=|domain|">|LANG_CHANGE_PASSWORD|</a><br>
+                        <a href="/CMD_LOGIN_HISTORY?domain=|domain|">|LANG_LOGIN_HISTORY|</a><br>
+		</td>
+		<td width="50%" valign="top">
+|*if USERDNSCONTROL="ON"|
+                        <a href="/CMD_DNS_CONTROL?domain=|domain|">|LANG_DNS_MANAGEMENT|</a><br>
+|*endif|
+                        <a href="/CMD_TICKET?domain=|domain|">|LANG_SUPPORT_CENTER|</a><br>
+                        <a href="/CMD_SITE_BACKUP?domain=|domain|">|LANG_CREATE_RESTORE_BACKUPS|</a><br>
+		</td>
+	</tr>
+
+</table>
+<br>
+<img border="0" src="|LANG_IMG_SKIN_BODY_EMAIL|" width="500" height="68"><br>
+<table border="0" width="100%" cellspacing="0" cellpadding="3">
+	<tr>
+		<td width="50%" valign="top" class="left-pad">
+|*if USEREMAILMAX!="0"|
+			<a href="/CMD_EMAIL_POP?domain=|domain|">|LANG_POP_EMAIL_ACCOUNTS|</a><br>
+|*endif|
+|*if USERCATCHALL="ON"|
+			<a href="/CMD_EMAIL_CATCH_ALL?domain=|domain|">|LANG_CATCH_ALL_EMAIL|</a><br>
+|*endif|
+|*if USERFORWARDERMAX!="0"|
+			<a href="/CMD_EMAIL_FORWARDER?domain=|domain|">|LANG_FORWARDERS|</a><br>
+|*endif|
+|*if USERRESPONDERMAX!="0"|
+			<a href="/CMD_EMAIL_AUTORESPONDER?domain=|domain|">|LANG_AUTORESPONDERS|</a><br>
+|*endif|
+|*if USEREMAILMAX!="0"|
+			<a href="/CMD_EMAIL_VACATION?domain=|domain|">|LANG_VAC_MESSAGES|</a><br>
+|*endif|
+|*if USERSPAM="ON"|
+			<a href="/CMD_SPAMASSASSIN?domain=|domain|">|LANG_SPAMASSASSIN|</a><br>
+|*endif|
+		</td>
+		<td width="50%" valign="top">
+|*if USERMLISTMAX!="0"|
+			<a href="/CMD_EMAIL_LIST?domain=|domain|">|LANG_MAILING_LISTS|</a><br>
+|*endif|
+
+|?SHOW_LINKS=yes|
+|*if USEREMAILMAX!="0"|
+			<a href="/CMD_EMAIL_FILTER?domain=|domain|">|LANG_SPAM_FILTERS|</a><br>
+|*else|
+	|?SHOW_LINKS=no|
+|*endif|
+|*if HIDE_WEBMAIL_LINKS="yes"|
+	|?SHOW_LINKS=no|
+|*endif|
+|*if SHOW_LINKS="no"|
+	|?HAVE_SQUIRRELMAIL=no|
+	|?HAVE_WEBMAIL=no|
+	|?HAVE_ROUNDCUBE=no|
+	|?HAVE_ATMAIL=no|
+|*endif|
+
+|*if HAVE_SQUIRRELMAIL="yes"|
+<a href="http://|HOSTNAME|/squirrelmail" target="_blank">|LANG_WEBMAIL_SM|</a><br>
+|*endif|
+
+|*if HAVE_WEBMAIL="yes"|
+<a href="http://|HOSTNAME|/webmail" target="_blank">|LANG_WEBMAIL_UEBI|</a><br>
+|*endif|
+
+|*if HAVE_ROUNDCUBE="yes"|
+<a href="http://|HOSTNAME|/roundcube" target="_blank">|LANG_WEBMAIL_ROUNDCUBE|</a><br>
+|*endif|
+
+|*if HAVE_ATMAIL="yes"|
+<a href="http://|HOSTNAME|/atmail" target="_blank">|LANG_WEBMAIL_ATMAIL|</a><br>
+|*endif|
+
+|*if USERDNSCONTROL="ON"|
+			<a href="/CMD_DNS_MX?domain=|domain|">|LANG_MX_RECORDS|</a><br>
+|*endif|
+		</td>
+	</tr>
+</table>
+
+|HTM_USER_BOTTOM|
